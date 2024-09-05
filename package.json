@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "bootstrap-icons": "^1.11.3",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "method-override": "^3.0.0"
+  }
+}

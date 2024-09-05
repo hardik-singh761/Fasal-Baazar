@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/market.css">
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/" style="color:lightgreen" id="heading">FasalBaazar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav nav-left">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/news">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/contact">Customer-Care</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                fill="currentColor" class="bi bi-camera" viewBox="0 0 16 16">
+                                <path
+                                    d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4z" />
+                                <path
+                                    d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5m0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0" />
+                            </svg></a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto nav-right">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+    <div class="cards">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG90YXRvfGVufDB8MHwwfHx8MA%3D%3D"
+                class="card-img-top">
+            <div class="card-body">
+                <button type="button" class="btn btn-danger">Delete</button>
+                <div class="box">0 Kg</div>
+                <button type="button" class="btn btn-success">Add</button>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="https://plus.unsplash.com/premium_photo-1661875719416-f2b30e95ea4a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Y2Fycm90fGVufDB8MHwwfHx8MA%3D%3D"
+                class="card-img-top">
+            <div class="card-body">
+                <button type="button" class="btn btn-danger">Delete</button>
+                <div class="box">0 Kg</div>
+                <button type="button" class="btn btn-success">Add</button>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1642582037312-9b9639be89e6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG9uaW9ufGVufDB8MHwwfHx8MA%3D%3D"
+                class="card-img-top">
+            <div class="card-body">
+                <button type="button" class="btn btn-danger">Delete</button>
+                <div class="box">0 Kg</div>
+                <button type="button" class="btn btn-success">Add</button>
+            </div>
+        </div>
+    </div>
+    </main>
+    <footer>
+        <p>© 2024 FasalBazaar. All Rights Reserved.</p>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach((card) => {
+
+            const addButton = card.querySelector('.btn-success');
+            const deleteButton = card.querySelector('.btn-danger');
+
+            const quantityBox = card.querySelector('.box');
+
+            let quantity = 0;
+
+            addButton.addEventListener('click', () => {
+                quantity++;
+                quantityBox.textContent = `${quantity} Kg`;
+            });
+
+            deleteButton.addEventListener('click', () => {
+                if (quantity > 0) {
+                    quantity--;
+                    quantityBox.textContent = `${quantity} Kg`;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
