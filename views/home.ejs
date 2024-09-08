@@ -29,44 +29,48 @@
                         <a class="nav-link active" href="/contact">Customer-Care</a>
                     </li>
                     <li class="nav-item">
-                        <a id="camera" class="nav-link active"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                fill="currentColor" class="bi bi-camera" viewBox="0 0 16 16">
+                        <a href="/ai" id="camera" class="nav-link active"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" fill="currentColor" class="bi bi-alexa" viewBox="0 0 16 16">
                                 <path
-                                    d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4z" />
-                                <path
-                                    d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5m0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0" />
+                                    d="M7.996 0A8 8 0 0 0 0 8a8 8 0 0 0 6.93 7.93v-1.613a1.06 1.06 0 0 0-.717-1.008A5.6 5.6 0 0 1 2.4 7.865 5.58 5.58 0 0 1 8.054 2.4a5.6 5.6 0 0 1 5.535 5.81l-.002.046-.012.192-.005.061a5 5 0 0 1-.033.284l-.01.068c-.685 4.516-6.564 7.054-6.596 7.068A7.998 7.998 0 0 0 15.992 8 8 8 0 0 0 7.996.001Z" />
                             </svg></a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto nav-right">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">Sign Up</a>
-                    </li>
+                    <% if (req.session.farmer) { %>
+                        <p>Welcome, <%= req.session.farmer.username %>
+                        </p>
+                        <li>
+                            <a href="/logout">Logout</a>
+                        </li>
+                        <% } else { %>
+                            <li>
+                                <a href="/login">Login</a>
+                            </li>
+                            <li>
+                                <a href="/signup">Sign Up</a>
+                            </li>
+                            <% } %>
                 </ul>
             </div>
         </div>
     </nav>
-    <video id="video" autoplay></video>
     <div class="container-fluid cards">
         <div class="row">
             <div class="col-md-4 cardbody">
                 <div class="card" style="width: 20rem;" id="market">
-                    <img src="https://images.unsplash.com/photo-1712574137396-411e73cf62e1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZmFybWVyJTIwbWFya2V0JTIwc2FsZXN8ZW58MHwwfDB8fHww"
+                    <img src="https://plus.unsplash.com/premium_photo-1686529896385-8a8d581d0225?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8d2hvbGVzYWxlJTIwbWFya2V0JTIwb2YlMjB2ZWdldGFibGVzfGVufDB8fDB8fHww"
                         class="card-img" alt="market">
                     <div class="content">
-                        <a href="/market">Market</a>
+                        <a href="/market">बाज़ार</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 cardbody">
                 <div class="card" style="width: 20rem;">
-                    <img src="https://plus.unsplash.com/premium_photo-1683121710572-7723bd2e235d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fEFJfGVufDB8MHwwfHx8MA%3D%3D"
-                        class="card-img">
+                    <img src="https://cdn.pixabay.com/photo/2018/06/21/13/57/clouds-3488632_640.jpg">
                     <div class="content">
-                        <a href="/ai">AI Assistant</a>
+                        <a href="https://lnkd.in/gsDfwytN">मौसम पूर्वानुमान</a>
                     </div>
                 </div>
             </div>
@@ -75,7 +79,16 @@
                     <img src="https://images.unsplash.com/photo-1626551929494-21ae7925619f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fEJpbyUyMGdhc3xlbnwwfDB8MHx8fDA%3D"
                         class="card-img">
                     <div class="content">
-                        <a href="/bio">Bio-Waste Bazaar</a>
+                        <a href="/bio">जैविक अपशिष्ट बाज़ार</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 cardbody">
+                <div class="card" style="width: 20rem;">
+                    <img src="https://images.unsplash.com/photo-1529511582893-2d7e684dd128?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d2hlYXR8ZW58MHwwfDB8fHww"
+                        class="card-img">
+                    <div class="content">
+                        <a href="/camera">फ़सल रोग पहचान</a>
                     </div>
                 </div>
             </div>
@@ -86,19 +99,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.getElementById('camera').addEventListener('click', async () => {
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-                const video = document.getElementById('video');
-                video.srcObject = stream;
-                video.style.display = 'block';
-            } catch (error) {
-                console.error('Error accessing the camera:', error);
-            }
-        });
-
-    </script>
 </body>
 
 </html>
